@@ -10,7 +10,7 @@ return [
     |
     */
 
-    "enable_send_sms" => env('ENABLE_SEND_SMS', false), //Enable or Disable Sms
+    "enable_send_sms" => env('ENABLE_SEND_SMS', true), //Enable or Disable Sms
     'methods' => [
         /*
            |--------------------------------------------------------------------------
