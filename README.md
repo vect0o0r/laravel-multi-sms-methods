@@ -30,7 +30,7 @@ composer require vectoor/laravel-multi-sms-methods
 
 You Should Publish Config File To Set Method Credentials
 ```bash
-php artisan vendor:publish --provider="php artisan vendor:publish --provider="Vector\LaravelMultiSmsMethods\Providers\SmsServiceProvider""
+php artisan vendor:publish --provider="Vector\LaravelMultiSmsMethods\Providers\SmsServiceProvider"
 ```
 
 
