@@ -100,10 +100,10 @@ abstract class BaseMethod
      * Convert Soap To Json
      *
      * @param $soap
-     * @return array
+     * @return mixed
      * @throws JsonException
      */
-    public function soapToJson($soap): array
+    public function soapToJson($soap): mixed
     {
         // Load xml data into xml data object
         $xmldata = simplexml_load_string($soap);
