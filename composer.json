@@ -1,0 +1,43 @@
+{
+  "name": "vectoor/laravel-multi-sms-methods",
+  "description": "multi payment methods for laravel",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Vector\\LaravelMultiSmsMethods\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Vector\\Tests\\": "tests"
+    }
+  },
+  "authors": [
+    {
+      "name": "Vector",
+      "email": "mo.khaled.yousef@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "guzzlehttp/guzzle": "^7.5",
+    "illuminate/support": "^9.36",
+    "ext-simplexml": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^9.5",
+    "laravel/lumen-framework": "9.*",
+    "orchestra/testbench": "^7.11"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Vector\\LaravelMultiSmsMethods\\Providers\\SmsServiceProvider"
+      ],
+      "aliases": {
+        "Debugbar": "Vector\\LaravelMultiSmsMethods\\Facade"
+      }
+    }
+  }
+}
