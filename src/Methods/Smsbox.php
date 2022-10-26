@@ -41,7 +41,7 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
      * @return array
      * @throws JsonException
      */
-    public function send(string $phones, string $message, string $scheduleDate = null): array
+    public function send(string $phones, string $message, string|null $scheduleDate = ''): array
     {
         if (!$this->enableSendSms)
             return $this->response(400, false, "Sme Sender Is Disabled");
@@ -61,7 +61,7 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
      * @return array
      * @throws JsonException
      */
-    public function sendSms(string $phone, string $message, string $scheduleDate = null): array
+    public function sendSms(string $phone, string $message, string|null $scheduleDate = ''): array
     {
         return $this->send($phone, $message, $scheduleDate);
     }
@@ -75,7 +75,7 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
      * @return array
      * @throws JsonException
      */
-    public function sendMultiSms(array $phonesArray, string $message, string $scheduleDate = null): array
+    public function sendMultiSms(array $phonesArray, string $message, string|null $scheduleDate = ''): array
     {
         $phones = implode(',', $phonesArray);
         return $this->send($phones, $message, $scheduleDate);
@@ -89,7 +89,7 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
      * @param string|null $scheduleDate
      * @return array
      */
-    public function buildSmsRequest(string $phone, string $message, string $scheduleDate = null): array
+    public function buildSmsRequest(string $phone, string $message, string|null $scheduleDate = ''): array
     {
         return [
             'username' => $this->config?->username,

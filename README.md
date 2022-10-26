@@ -63,7 +63,7 @@ return [
             'username' => env('SMSBOX_USERNAME'),
             'password' => env('SMSBOX_PASSWORD'),
             'gateway_id' => env('SMSBOX_GATWAY_ID'),
-            'sender_id' => env('SMS_SENDER_ID'),
+            'sender_id' => env('SMSBOX_SENDER_ID'),
         ],
     ]
 
