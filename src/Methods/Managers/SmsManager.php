@@ -19,10 +19,9 @@ class SmsManager
      * Return Passed Sms Driver Class
      *
      * @param $method
-     * @return array
-     * @throws Exception
+     * @return mixed
      */
-    public function driver($method): array
+    public function driver($method): mixed
     {
         $this->checkMethodAvailability($method);
         $class = $this->getMethodDriver($method);
