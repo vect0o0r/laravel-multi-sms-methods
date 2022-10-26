@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Vector\\Tests\\Feature\\SmsBoxTest::test_user_can_send_single_sms":4,"Vector\\Tests\\Feature\\SmsBoxTest::test_user_can_send_multi_sms":4},"times":{"Vector\\Tests\\Feature\\SmsBoxTest::test_user_can_send_single_sms":0.105,"Vector\\Tests\\Feature\\SmsBoxTest::test_user_can_send_multi_sms":0.099}}

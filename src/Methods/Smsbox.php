@@ -18,15 +18,18 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
      * Set Method Driver And Base Url
      *
      * @return void
+     * @throws JsonException
      */
     public function __construct()
     {
+        //Set Method Driver
+        $this->driver = 'smsbox';
         //Set Method Base Url
         $this->base_url = "https://smsbox.com";
         //Set Method Supported Type
         $this->supportedTypes = [MethodTypes::SMS->value];
-        //Set Method Driver
-        $this->driver = 'smsbox';
+        //Set Config Required Keys
+        $this->requiredConfigKeys = ['username', 'password', 'gateway_id', 'sender_id'];
         //Calling Parent Constructor
         parent::__construct();
     }

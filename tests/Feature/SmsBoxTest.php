@@ -19,17 +19,17 @@ class SmsBoxTest extends TestCase
     public function test_user_can_send_single_sms(): void
     {
         $sms = new SmsManager;
-        $sms = $sms->driver('smsbox')->sendSms('+96566991971', 'test Sms From Vector 2');
+        $sms = (object)$sms->driver('smsbox')->sendSms($this->phone, $this->message);
         $this->assertTrue($sms->success);
-        $this->assertEquals(200,$sms->code);
+        $this->assertEquals(200, $sms->code);
     }
 
     /** @test * */
     public function test_user_can_send_multi_sms(): void
     {
         $sms = new SmsManager;
-        $sms = (object)$sms->driver('smsbox')->sendMultiSms(['+96566991971', '+96566991971'], 'test Sms From Vector 2');
+        $sms = (object)$sms->driver('smsbox')->sendMultiSms([$this->phone], $this->message);
         $this->assertTrue($sms->success);
-        $this->assertEquals(200,$sms->code);
+        $this->assertEquals(200, $sms->code);
     }
 }

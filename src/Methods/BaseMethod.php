@@ -20,6 +20,12 @@ abstract class BaseMethod
      */
     protected bool $enableSendSms;
     /**
+     * requiredConfigKeys.
+     *
+     * @var array
+     */
+    protected array $requiredConfigKeys;
+    /**
      * supportedTypes.
      *
      * @var array
@@ -54,11 +60,17 @@ abstract class BaseMethod
      * Boot Method And Set Method Configurations And HttpClient
      *
      * @return void
+     * @throws JsonException
      */
     public function __construct()
     {
+        //Set Method Configurations From Config File
         $this->setConfigurations();
+        //Start Creating Http Client To Send Request
         $this->buildHttpClient();
+        //validate Required Keys Is Exists
+        $this->validateRequiredKeys();
+
     }
 
     /**
@@ -70,6 +82,26 @@ abstract class BaseMethod
     {
         $this->enableSendSms = config("sms-methods.enable_send_sms");
         $this->config = (object)config("sms-methods.methods.$this->driver");
+    }
+
+    /**
+     * Check The Required Keys Is Initialized
+     *
+     * @return array
+     * @throws JsonException
+     */
+    protected function validateRequiredKeys(): array
+    {
+        $config = $this->config;
+        $requiredKeys = $this->requiredConfigKeys;
+        $errors = [];
+        foreach ($requiredKeys as $requiredKey) {
+            if (!isset($config->$requiredKey) || is_null($config->$requiredKey) || trim($config->$requiredKey) === '') {
+                throw new JsonException("$requiredKey is required");
+            }
+        }
+
+        return $errors;
     }
 
     /**

@@ -78,27 +78,6 @@ Use Sms Facade
 use Vector\LaravelMultiSmsMethods\Facade\Sms;
 ```
 ## Usage/Examples
-### Sms Box
-
-#### To Send Single Sms
-
-```bash
-  Sms::driver('smsbox')->sendSms($mobileNumber,$message);
-  
-  $mobileNumber : Is String Of Mobile Number With Country Code
- 
-  $message : Is String Of Message Content
-```
-
-#### To Send Multi Sms
-
-```bash
-  Sms::driver('smsbox')->sendMultiSms($mobileNumber,$message);
-  
-  $mobileNumber : Is Array Of Mobile Numbers With Country Code
- 
-  $message : Is String Of Message Content
-```
 
 ### Sms Box
 #### To Send Single Sms
