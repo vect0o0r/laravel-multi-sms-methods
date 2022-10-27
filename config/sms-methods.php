@@ -26,6 +26,11 @@ return [
             'gateway_id' => env('SMSBOX_GATWAY_ID'),
             'sender_id' => env('SMSBOX_SENDER_ID'),
         ],
+        'twilio' => [
+            'account_sid' => env('TWILIO_ACCOUNT_SID'),
+            'auth_token' => env('TWILIO_AUTH_TOKEN'),
+
+        ],
     ]
 
 ];

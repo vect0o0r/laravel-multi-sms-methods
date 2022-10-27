@@ -106,8 +106,8 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 ```bash
   array:4 [
   "code" => 200
-  "success" => "Message Send Successfully"
-  "message" => "ok"
+  "success" => true
+  "message" => "Message Send Successfully"
   "data" => array:5 [
     "Message" => "Message Send Successfully"
     "Result" => "true"
