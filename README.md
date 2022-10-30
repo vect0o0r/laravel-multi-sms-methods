@@ -65,6 +65,13 @@ return [
             'gateway_id' => env('SMSBOX_GATWAY_ID'),
             'sender_id' => env('SMSBOX_SENDER_ID'),
         ],
+          'twilio' => [
+            'account_sid' => env('TWILIO_ACCOUNT_SID'),
+            'auth_token' => env('TWILIO_AUTH_TOKEN'),
+            'sms_phone_number' => env('TWILIO_SMS_PHONE_NUMBER'),
+            'schedule_messaging_service_sid' => env('TWILIO_SCHEDULE_MESSAGING_SERVICE_SID'),
+            'whatsapp_phone_number' => env('TWILIO_WHATSAPP_PHONE_NUMBER'),
+        ],
     ]
 
 ];
@@ -77,8 +84,8 @@ Use Sms Facade
 ```bash
 use Vector\LaravelMultiSmsMethods\Facade\Sms;
 ```
-## Usage/Examples
-
+# Usage/Examples
+## Request
 ### Sms Box
 #### To Send Single Sms
 ```bash
@@ -110,31 +117,6 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 | :--------       | :------- | :------------------------- |
 | `$mobileNumbers` | `Array`  | **Required**. Is Array Of Mobile Numbers With Country Code |
 | `$message`      | `string`  | **Required**. Is String Of Message Content |
-
-
-## Response
-### Example
-```bash
-  array:4 [
-  "code" => 200
-  "success" => true
-  "message" => "Message Send Successfully"
-  "data" => array:5 [
-    "Message" => "Message Send Successfully"
-    "Result" => "true"
-    "NetPoints" => "4995.600"
-    "messageId" => "79539c54-XXXX-XXXX-XXXX-2db9244b1969"
-    "RejectedNumbers" => []
-  ]
-]
-
-```
-| Variable        | Type     | Description                |
-| :--------       | :------- | :------------------------- |
-| `code`          | `integer` | Response Code OF The Sent Api |
-| `message`       | `string`  | The Response Message From Api |
-| `success`       | `bool`    | The Response Status (If Success Or Not)  |
-| `data`          | `array`   | The Full Response From Api   |
 
 
 ### Twilio
@@ -184,6 +166,30 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 | Variable        | Type     | Description                     |
 | :--------       | :------- |:--------------------------------|
 | `$messageID` | `string` | **Required**. Id Of The Message |
+
+## Response
+### Example
+```bash
+  array:4 [
+  "code" => 200
+  "success" => true
+  "message" => "Message Send Successfully"
+  "data" => array:5 [
+    "Message" => "Message Send Successfully"
+    "Result" => "true"
+    "NetPoints" => "4995.600"
+    "messageId" => "79539c54-XXXX-XXXX-XXXX-2db9244b1969"
+    "RejectedNumbers" => []
+  ]
+]
+```
+| Variable        | Type     | Description                |
+| :--------       | :------- | :------------------------- |
+| `code`          | `integer` | Response Code OF The Sent Api |
+| `message`       | `string`  | The Response Message From Api |
+| `success`       | `bool`    | The Response Status (If Success Or Not)  |
+| `data`          | `array`   | The Full Response From Api   |
+
 
 ## Authors
 
