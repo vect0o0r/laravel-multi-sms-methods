@@ -38,17 +38,17 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
     /**
      * Send sms message.
      *
-     * @param string $phones
+     * @param string $phone
      * @param string $message
      * @param string|null $scheduleDate
      * @return array
      * @throws JsonException
      */
-    public function send(string $phones, string $message, string|null $scheduleDate = ''): array
+    public function send(string $phone, string $message, string|null $scheduleDate = ''): array
     {
         if (!$this->enableSendSms)
             return $this->response(400, false, "Sme Sender Is Disabled");
-        $requestBody = $this->buildSmsRequest($phones, $message, $scheduleDate);
+        $requestBody = $this->buildSmsRequest($phone, $message, $scheduleDate);
         $response = $this->client->get('SMSGateway/Services/Messaging.asmx/Http_SendSMS', $requestBody);
         $jsonResponse = $this->soapToJson($response->body());
         $success = $jsonResponse->Result == 'true' ? true : false;
@@ -56,15 +56,39 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
     }
 
     /**
+     * Get Sms Status
+     *
+     * @param string $smsID
+     * @return array
+     */
+    public function getSmsDetails(string $smsID): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
      * Handle Single sms message.
      *
      * @param string $phone
      * @param string $message
-     * @param string|null $scheduleDate
      * @return array
      * @throws JsonException
      */
-    public function sendSms(string $phone, string $message, string|null $scheduleDate = ''): array
+    public function sendSms(string $phone, string $message): array
+    {
+        return $this->send($phone, $message);
+    }
+
+    /**
+     * Handle Single sms message.
+     *
+     * @param string $phone
+     * @param string $message
+     * @param string $scheduleDate
+     * @return array
+     * @throws JsonException
+     */
+    public function sendScheduleSms(string $phone, string $message, string $scheduleDate): array
     {
         return $this->send($phone, $message, $scheduleDate);
     }
@@ -74,14 +98,13 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
      *
      * @param array $phonesArray
      * @param string $message
-     * @param string|null $scheduleDate
      * @return array
      * @throws JsonException
      */
-    public function sendMultiSms(array $phonesArray, string $message, string|null $scheduleDate = ''): array
+    public function sendMultiSms(array $phonesArray, string $message): array
     {
         $phones = implode(',', $phonesArray);
-        return $this->send($phones, $message, $scheduleDate);
+        return $this->send($phones, $message);
     }
 
     /**

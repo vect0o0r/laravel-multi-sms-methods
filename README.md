@@ -82,23 +82,34 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 ### Sms Box
 #### To Send Single Sms
 ```bash
-  Sms::driver('smsbox')->sendSms($mobileNumber,$message,$scheduleDate = null);
+  Sms::driver('smsbox')->sendSms($mobileNumber,$message);
 ```
 | Variable        | Type     | Description                |
 | :--------       | :------- | :------------------------- |
 | `$mobileNumber` | `string` | **Required**. Is String Of Mobile Number With Country Code |
 | `$message`      | `string` | **Required**. Is String Of Message Content |
-| `$scheduleDate`  | `date`   | **Optional**. schedule Date If You Want To schedule Message |
+
+
+#### To Send Schedule Sms
+```bash
+  Sms::driver('smsbox')->sendScheduleSms($mobileNumber,$message,$scheduleDate);
+```
+| Variable        | Type     | Description                |
+| :--------       | :------- | :------------------------- |
+| `$mobileNumber` | `string` | **Required**. Is String Of Mobile Number With Country Code |
+| `$message`      | `string` | **Required**. Is String Of Message Content |
+| `$scheduleDate`  | `date`   | **Required**. schedule Date If You Want To schedule Message |
+
 
 #### To Send Multi Sms
 ```bash
-  Sms::driver('smsbox')->sendMultiSms($mobileNumber,$message,$scheduleDate = null);
+  Sms::driver('smsbox')->sendMultiSms($mobileNumber,$message);
 ```
+
 | Variable        | Type     | Description                |
 | :--------       | :------- | :------------------------- |
 | `$mobileNumbers` | `Array`  | **Required**. Is Array Of Mobile Numbers With Country Code |
 | `$message`      | `string`  | **Required**. Is String Of Message Content |
-| `$scheduleDate`  | `date`   | **Optional**. schedule Date If You Want To schedule Message |
 
 
 ## Response
@@ -125,6 +136,55 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 | `success`       | `bool`    | The Response Status (If Success Or Not)  |
 | `data`          | `array`   | The Full Response From Api   |
 
+
+### Twilio
+#### To Send Single Sms
+```bash
+  Sms::driver('twilio')->sendSms($mobileNumber,$message);
+```
+| Variable        | Type     | Description                |
+| :--------       | :------- | :------------------------- |
+| `$mobileNumber` | `string` | **Required**. Is String Of Mobile Number With Country Code |
+| `$message`      | `string` | **Required**. Is String Of Message Content |
+#### To Send Multi Sms
+```bash
+  Sms::driver('twilio')->sendMultiSms($mobileNumber,$message);
+```
+
+| Variable        | Type     | Description                |
+| :--------       | :------- | :------------------------- |
+| `$mobileNumbers` | `Array`  | **Required**. Is Array Of Mobile Numbers With Country Code |
+| `$message`      | `string`  | **Required**. Is String Of Message Content |
+
+#### To Send Schedule Sms
+```bash
+  Sms::driver('twilio')->sendScheduleSms($mobileNumber,$message,$scheduleDate);
+```
+| Variable        | Type     | Description                                                     |
+| :--------       | :------- |:----------------------------------------------------------------|
+| `$mobileNumber` | `string` | **Required**. Is String Of Mobile Number With Country Code      |
+| `$message`      | `string` | **Required**. Is String Of Message Content                      |
+| `$scheduleDate`  | `date`   | **Required**. schedule Date If You Want To schedule Message ex  "2022-10-29T20:36:27Z" |
+
+#### To Send Whatsapp Message
+```bash
+  Sms::driver('twilio')->sendWhatsappMessage($mobileNumber,$message);
+```
+
+| Variable        | Type     | Description                |
+| :--------       | :------- | :------------------------- |
+| `$mobileNumber` | `string` | **Required**. Is String Of Mobile Number With Country Code |
+| `$message`      | `string` | **Required**. Is String Of Message Content |
+
+#### To Get Sms Information
+```bash
+  Sms::driver('twilio')->getSmsDetails($messageID);
+```
+
+| Variable        | Type     | Description                     |
+| :--------       | :------- |:--------------------------------|
+| `$messageID` | `string` | **Required**. Id Of The Message |
+
 ## Authors
 
 - [@Vector](https://github.com/vect0o0r)
@@ -137,7 +197,7 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 
 ## License
 
-The Laravel SMS Gateway package is open-sourced software licensed under the [MIT license]().
+The Laravel SMS Gateway package is open-sourced software licensed under the [MIT license](https://github.com/vect0o0r/laravel-multi-sms-methods/blob/master/LICENSE).
 
 
 ## Support

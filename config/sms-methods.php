@@ -29,7 +29,9 @@ return [
         'twilio' => [
             'account_sid' => env('TWILIO_ACCOUNT_SID'),
             'auth_token' => env('TWILIO_AUTH_TOKEN'),
-
+            'sms_phone_number' => env('TWILIO_SMS_PHONE_NUMBER'),
+            'schedule_messaging_service_sid' => env('TWILIO_SCHEDULE_MESSAGING_SERVICE_SID'),
+            'whatsapp_phone_number' => env('TWILIO_WHATSAPP_PHONE_NUMBER'),
         ],
     ]
 

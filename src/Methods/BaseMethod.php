@@ -111,7 +111,7 @@ abstract class BaseMethod
      */
     protected function buildHttpClient(): PendingRequest
     {
-        return $this->client = Http::baseUrl($this->base_url);
+        return $this->client = Http::baseUrl($this->base_url)->acceptJson();
     }
 
     /**

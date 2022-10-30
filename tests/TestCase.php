@@ -13,7 +13,8 @@ use Vector\LaravelMultiSmsMethods\Providers\SmsServiceProvider;
  */
 abstract class TestCase extends Orchestra
 {
-    protected string $phone = "2001118065363";
+    // protected string $phone = "+2001118065363";
+    protected string $phone = "+2001028955489";
 
     protected string $message = "Test Message Form Unit Testing";
 
