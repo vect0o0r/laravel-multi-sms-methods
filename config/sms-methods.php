@@ -23,7 +23,7 @@ return [
         'smsbox' => [
             'username' => env('SMSBOX_USERNAME'),
             'password' => env('SMSBOX_PASSWORD'),
-            'gateway_id' => env('SMSBOX_GATWAY_ID'),
+            'gateway_id' => env('SMSBOX_GATEWAY_ID'),
             'sender_id' => env('SMSBOX_SENDER_ID'),
         ],
         'twilio' => [
