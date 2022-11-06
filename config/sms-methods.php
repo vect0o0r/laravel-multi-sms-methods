@@ -9,7 +9,6 @@ return [
     | Here are each of the Available sms Methods
     |
     */
-
     "enable_send_sms" => env('ENABLE_SEND_SMS', true), //Enable or Disable Sms
     'methods' => [
         /*

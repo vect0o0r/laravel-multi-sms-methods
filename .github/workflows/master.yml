@@ -55,9 +55,7 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-
       - name: Install Composer Dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-suggest
-
-      - name: Run Unit Test
-        run: composer test
+#      - name: Run Unit Test
+#        run: composer test
