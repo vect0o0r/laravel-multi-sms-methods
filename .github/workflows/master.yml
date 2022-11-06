@@ -58,5 +58,5 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --no-suggest
 #      - name: Run Unit Test
-#        run: composer test
+#        run: phpunit
 
