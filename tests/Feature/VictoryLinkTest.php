@@ -5,11 +5,11 @@ namespace Vector\Tests\Feature;
 use Vector\LaravelMultiSmsMethods\Managers\SmsManager;
 use Vector\Tests\TestCase;
 
-class SmsBoxTest extends TestCase
+class VictoryLinkTest extends TestCase
 {
-    protected string $driver = "smsbox";
+    protected string $driver = "victorylink";
     /**
-     * SMS BOX Tests.
+     * SMS Misr Tests.
      *
      * @author Vector <mo.khaled.yousef@gmail.com>
      */
@@ -24,20 +24,14 @@ class SmsBoxTest extends TestCase
     }
 
     /** @test * */
-    public function test_user_can_send_schedule_sms(): void
+    public function test_user_can_send_get_account_balance(): void
     {
         $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendScheduleSms($this->phone, $this->message,'2022-10-27 07:21:03');
+        $sms = (object)$sms->driver($this->driver)->getBalance();
         $this->assertTrue($sms->success);
+        $this->assertIsInt(200, $sms->data['balance']);
         $this->assertEquals(200, $sms->code);
     }
 
-    /** @test * */
-    public function test_user_can_send_multi_sms(): void
-    {
-        $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendMultiSms([$this->phone], $this->message);
-        $this->assertTrue($sms->success);
-        $this->assertEquals(200, $sms->code);
-    }
+
 }

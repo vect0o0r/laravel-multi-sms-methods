@@ -17,10 +17,11 @@ interface SmsGatewayInterface
      *
      * @param string $phone
      * @param string $message
+     * @param string|null $scheduleDate
      * @return array
      * @throws JsonException
      */
-    public function send(string $phone, string $message): array;
+    public function send(string $phone, string $message,string|null $scheduleDate): array;
 
     /**
      * Send sms message.

@@ -5,6 +5,7 @@ namespace Vector\LaravelMultiSmsMethods\Methods;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 use JsonException;
+use Vector\LaravelMultiSmsMethods\Constants\MethodTypes;
 
 /**
  * Driver class.
@@ -38,6 +39,12 @@ abstract class BaseMethod
      */
     protected string $driver;
     /**
+     * messageType.
+     *
+     * @var string
+     */
+    protected string $messageType;
+    /**
      * Driver.
      *
      * @var string
@@ -64,13 +71,14 @@ abstract class BaseMethod
      */
     public function __construct()
     {
+        //Set Method Supported Type
+        $this->messageType = MethodTypes::SMS->value;
         //Set Method Configurations From Config File
         $this->setConfigurations();
         //Start Creating Http Client To Send Request
         $this->buildHttpClient();
         //validate Required Keys Is Exists
         $this->validateRequiredKeys();
-
     }
 
     /**
@@ -111,7 +119,7 @@ abstract class BaseMethod
      */
     protected function buildHttpClient(): PendingRequest
     {
-        return $this->client = Http::baseUrl($this->base_url)->acceptJson();
+        return $this->client = Http::baseUrl($this->base_url);
     }
 
     /**
@@ -138,8 +146,23 @@ abstract class BaseMethod
     public function soapToJson($soap): mixed
     {
         // Load xml data into xml data object
-        $xmldata = simplexml_load_string($soap);
+        $xmlData = simplexml_load_string($soap);
         // using json_encode function && Encode this xml data into json
-        return json_decode(json_encode($xmldata, JSON_THROW_ON_ERROR), false, 512, JSON_THROW_ON_ERROR);
+        return json_decode(json_encode($xmlData, JSON_THROW_ON_ERROR), false, 512, JSON_THROW_ON_ERROR);
+    }
+
+    /**
+     * Convert Soap To Json
+     *
+     * @param $soap
+     * @return mixed
+     * @throws JsonException
+     */
+    public function soapToArray($soap): mixed
+    {
+        // Load xml data into xml data object
+        $xmlData = simplexml_load_string($soap);
+        // using json_encode function && Encode this xml data into json
+        return json_decode(json_encode((array)$xmlData, JSON_THROW_ON_ERROR), true, 512, JSON_THROW_ON_ERROR);
     }
 }

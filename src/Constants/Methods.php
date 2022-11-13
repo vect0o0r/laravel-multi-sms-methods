@@ -3,6 +3,7 @@
 namespace Vector\LaravelMultiSmsMethods\Constants;
 
 use Illuminate\Support\Str;
+
 /**
  * SMS Available Methods.
  *
@@ -13,6 +14,10 @@ enum Methods: string
 {
     // DEFINING CONSTANTS
     case SMSBOX = 'smsbox';
+    case SMSMISR = 'smsmisr';
+    case SMSEG = 'smseg';
+    case VICTORYLINK = 'victorylink';
+    case OOREDOO = 'ooredoo';
     case TWILIO = 'twilio';
 
     public static function getNames(): array

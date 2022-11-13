@@ -5,11 +5,11 @@ namespace Vector\Tests\Feature;
 use Vector\LaravelMultiSmsMethods\Managers\SmsManager;
 use Vector\Tests\TestCase;
 
-class TwilioTest extends TestCase
+class OoredooTest extends TestCase
 {
-    protected string $driver = "twilio";
+    protected string $driver = "ooredoo";
     /**
-     * Twilio Tests.
+     * Ooredoo Tests.
      *
      * @author Vector <mo.khaled.yousef@gmail.com>
      */
@@ -20,45 +20,45 @@ class TwilioTest extends TestCase
         $sms = new SmsManager;
         $sms = (object)$sms->driver($this->driver)->sendSms($this->phone, $this->message);
         $this->assertTrue($sms->success);
-        $this->assertEquals(201, $sms->code);
+        $this->assertEquals(200, $sms->code);
     }
 
     /** @test * */
     public function test_user_can_send_multi_sms(): void
     {
         $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendMultiSms([$this->phone], $this->message);
+        $sms = (object)$sms->driver($this->driver)->sendMultiSms([$this->phone,$this->phone2], $this->message);
         $this->assertTrue($sms->success);
-        $this->assertEquals(201, $sms->code);
+        $this->assertEquals(200, $sms->code);
     }
 
     /** @test * */
     public function test_user_can_send_schedule_sms(): void
     {
         $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendScheduleSms($this->phone, $this->message, "2022-10-29T20:36:27Z");
+        $sms = (object)$sms->driver($this->driver)->sendScheduleSms($this->phone, $this->message,'2022-11-27 07:21:03');
         $this->assertTrue($sms->success);
-        $this->assertEquals("scheduled", $sms->message);
-        $this->assertEquals(201, $sms->code);
-    }
-
-    /** @test * */
-    public function test_user_can_send_whatsapp_message(): void
-    {
-        $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendWhatsappMessage($this->phone, $this->message);
-        $this->assertTrue($sms->success);
-        $this->assertEquals(201, $sms->code);
+        $this->assertEquals(200, $sms->code);
     }
 
     /** @test * */
     public function test_user_can_get_sms_details(): void
     {
-        $messageID = 'SM0675b053981a9377d41e3e34054d75a1';
+        $messageID = 'a0913315-f25f-43ce-a532-021a14f69f4b';
         $sms = new SmsManager;
         $sms = (object)$sms->driver($this->driver)->getSmsDetails($messageID);
         $this->assertTrue($sms->success);
         $this->assertEquals(200, $sms->code);
     }
+
+    /** @test * */
+    public function test_user_can_send_get_account_balance(): void
+    {
+        $sms = new SmsManager;
+        $sms = (object)$sms->driver($this->driver)->getBalance();
+        $this->assertTrue($sms->success);
+        $this->assertEquals(200, $sms->code);
+    }
+
 
 }

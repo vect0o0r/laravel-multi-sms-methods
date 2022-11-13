@@ -25,6 +25,34 @@ return [
             'gateway_id' => env('SMSBOX_GATEWAY_ID'),
             'sender_id' => env('SMSBOX_SENDER_ID'),
         ],
+        'smsmisr' => [
+            'username' => env('SMSMISR_USERNAME'),
+            'password' => env('SMSMISR_PASSWORD'),
+            'sender_token' => env('SMSMISR_SENDER_TOKEN'),
+            'template_token' => env('SMSMISR_TEMPLATE_TOKEN'),
+            'sandbox' => env('SMSMISR_SANDBOX'),
+        ],
+        'smseg' => [
+            'username' =>"Switch Plus",
+            'password' => "Switch@2021!2!",
+            'sender_id' => "Switch Plus",
+
+
+            // 'username' => env('SMSEG_USERNAME'),
+            // 'password' => env('SMSEG_PASSWORD'),
+            // 'sender_id' => env('SMSEG_SENDER_ID'),
+        ],
+        'ooredoo' => [
+            'username' => env('OOREDOO_USERNAME'),
+            'password' => env('OOREDOO_PASSWORD'),
+            'sender_id' => env('OOREDOO_SENDER_ID'),
+            'customer_id' => env('OOREDOO_CUSTOMER_ID'),
+        ],
+        'victorylink' => [
+            'username' => env('VICTORYLINK_USERNAME'),
+            'password' => env('VICTORYLINK_PASSWORD'),
+            'sender_id' => env('VICTORYLINK_SENDER_ID'),
+        ],
         'twilio' => [
             'account_sid' => env('TWILIO_ACCOUNT_SID'),
             'auth_token' => env('TWILIO_AUTH_TOKEN'),

@@ -1,8 +1,7 @@
 <?php
 
-namespace Vector\LaravelMultiSmsMethods\Methods\Managers;
+namespace Vector\LaravelMultiSmsMethods\Managers;
 
-use Exception;
 use RuntimeException;
 use Vector\LaravelMultiSmsMethods\Constants\Methods;
 

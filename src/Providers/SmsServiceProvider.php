@@ -2,8 +2,9 @@
 
 namespace Vector\LaravelMultiSmsMethods\Providers;
 
+use Dotenv\Dotenv;
 use Illuminate\Support\ServiceProvider;
-use Vector\LaravelMultiSmsMethods\Methods\Managers\SmsManager;
+use Vector\LaravelMultiSmsMethods\Managers\SmsManager;
 
 /**
  * SmsServiceProvider class.
