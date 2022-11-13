@@ -9,7 +9,7 @@ class VictoryLinkTest extends TestCase
 {
     protected string $driver = "victorylink";
     /**
-     * SMS Misr Tests.
+     * VictoryLink Tests.
      *
      * @author Vector <mo.khaled.yousef@gmail.com>
      */

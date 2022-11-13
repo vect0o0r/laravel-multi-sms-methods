@@ -27,7 +27,7 @@ class OoredooTest extends TestCase
     public function test_user_can_send_multi_sms(): void
     {
         $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendMultiSms([$this->phone,$this->phone2], $this->message);
+        $sms = (object)$sms->driver($this->driver)->sendMultiSms([$this->phone, $this->phone2], $this->message);
         $this->assertTrue($sms->success);
         $this->assertEquals(200, $sms->code);
     }
@@ -36,7 +36,7 @@ class OoredooTest extends TestCase
     public function test_user_can_send_schedule_sms(): void
     {
         $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendScheduleSms($this->phone, $this->message,'2022-11-27 07:21:03');
+        $sms = (object)$sms->driver($this->driver)->sendScheduleSms($this->phone, $this->message, '2022-11-27 07:21:03');
         $this->assertTrue($sms->success);
         $this->assertEquals(200, $sms->code);
     }

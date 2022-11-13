@@ -35,8 +35,9 @@ class SmsManager
      */
     public function checkMethodAvailability($method): void
     {
-        if (!in_array($method, Methods::getValues(), true))
+        if (!in_array($method, Methods::getValues(), true)) {
             throw new RuntimeException("Driver {$method} Is Not Supported Yet");
+        }
     }
 
     /**
@@ -49,11 +50,11 @@ class SmsManager
     {
         $methodsClassName = $this->cleanMethodName($method);
         $className = "Vector\LaravelMultiSmsMethods\Methods\\" . $methodsClassName;
-        if (!class_exists($className))
+        if (!class_exists($className)) {
             throw new RuntimeException("Class {$methodsClassName} does not exist");
+        }
         return $className;
     }
-
 
     /**
      * Clean Method Name and upper case first letter

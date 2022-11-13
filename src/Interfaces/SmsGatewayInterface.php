@@ -15,16 +15,37 @@ interface SmsGatewayInterface
     /**
      * Send sms message.
      *
+     * Used To Start Calling Provider Api
      * @param string $phone
      * @param string $message
      * @param string|null $scheduleDate
      * @return array
      * @throws JsonException
      */
-    public function send(string $phone, string $message,string|null $scheduleDate): array;
+    public function send(string $phone, string $message, string|null $scheduleDate): array;
 
     /**
-     * Send sms message.
+     * Send Single Sms message.
+     *
+     * @param string $phone
+     * @param string $message
+     * @return array
+     * @throws JsonException
+     */
+    public function sendSms(string $phone, string $message): array;
+
+    /**
+     * Send Multi Sms message.
+     *
+     * @param array $phonesArray
+     * @param string $message
+     * @return array
+     * @throws JsonException
+     */
+    public function sendMultiSms(array $phonesArray, string $message): array;
+
+    /**
+     * Send Scheduled Sms message.
      *
      * @param string $phone
      * @param string $message
@@ -35,35 +56,38 @@ interface SmsGatewayInterface
     public function sendScheduleSms(string $phone, string $message, string $scheduleDate): array;
 
     /**
-     * Handle Single sms message.
+     * Used To Send OTP message.
      *
      * @param string $phone
-     * @param string $message
+     * @param int|null $otp
      * @return array
      * @throws JsonException
      */
-    public function sendSms(string $phone, string $message): array;
+    public function sendOtp(string $phone, int $otp = null): array;
 
     /**
-     * Handle Multi sms message.
+     *  Check Sent OTP message.
      *
-     * @param array $phonesArray
-     * @param string $message
+     * @param string $phone
+     * @param int $otp
      * @return array
-     * @throws JsonException
      */
-    public function sendMultiSms(array $phonesArray, string $message): array;
-
+    public function checkOtp(string $phone, int $otp): array;
 
     /**
-     * Handle Multi sms message.
+     * Get Sms Details
      *
      * @param string $smsID
      * @return array
-     * @throws JsonException
      */
     public function getSmsDetails(string $smsID): array;
 
+    /**
+     * Get Account Available Balance.
+     *
+     * @return array
+     */
+    public function getBalance(): array;
 
     /**
      * Build Sms Request Body
@@ -74,6 +98,8 @@ interface SmsGatewayInterface
      * @return array
      */
     public function buildSmsRequest(string $phone, string $message, string $scheduleDate = null): array;
+
+
 
 
 }

@@ -7,7 +7,7 @@ use Vector\LaravelMultiSmsMethods\Constants\MethodTypes;
 use Vector\LaravelMultiSmsMethods\Interfaces\SmsGatewayInterface;
 
 /**
- * SmsBox class.
+ * VictoryLink class.
  *
  * @author Vector <mo.khaled.yousef@gmail.com>
  */
@@ -37,6 +37,7 @@ class Victorylink extends BaseMethod implements SmsGatewayInterface
     /**
      * Send sms message.
      *
+     * Used To Start Calling Provider Api
      * @param string $phone
      * @param string $message
      * @param string|null $scheduleDate
@@ -55,7 +56,82 @@ class Victorylink extends BaseMethod implements SmsGatewayInterface
     }
 
     /**
-     * Get Account Balance.
+     * Send Single Sms message.
+     *
+     * @param string $phone
+     * @param string $message
+     * @return array
+     * @throws JsonException
+     */
+    public function sendSms(string $phone, string $message): array
+    {
+        return $this->send($phone, $message);
+    }
+
+    /**
+     * Send Multi Sms message.
+     *
+     * @param array $phonesArray
+     * @param string $message
+     * @return array
+     * @throws JsonException
+     */
+    public function sendMultiSms(array $phonesArray, string $message): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     * Send Scheduled Sms message.
+     *
+     * @param string $phone
+     * @param string $message
+     * @param string $scheduleDate
+     * @return array
+     * @throws JsonException
+     */
+    public function sendScheduleSms(string $phone, string $message, string $scheduleDate): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     * Used To Send OTP message.
+     *
+     * @param string $phone
+     * @param int|null $otp
+     * @return array
+     */
+    public function sendOtp(string $phone, int $otp = null): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     *  Check Sent OTP message.
+     *
+     * @param string $phone
+     * @param int $otp
+     * @return array
+     */
+    public function checkOtp(string $phone, int $otp): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     * Get Sms Details
+     *
+     * @param string $smsID
+     * @return array
+     */
+    public function getSmsDetails(string $smsID): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     * Get Account Available Balance.
      *
      * @return array
      * @throws JsonException
@@ -71,56 +147,7 @@ class Victorylink extends BaseMethod implements SmsGatewayInterface
     }
 
     /**
-     * Get Sms Status
-     *
-     * @param string $smsID
-     * @return array
-     */
-    public function getSmsDetails(string $smsID): array
-    {
-        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
-    }
-
-    /**
-     * Handle Single sms message.
-     *
-     * @param string $phone
-     * @param string $message
-     * @return array
-     * @throws JsonException
-     */
-    public function sendSms(string $phone, string $message): array
-    {
-        return $this->send($phone, $message);
-    }
-
-    /**
-     * Handle Single sms message.
-     *
-     * @param string $phone
-     * @param string $message
-     * @param string $scheduleDate
-     * @return array
-     */
-    public function sendScheduleSms(string $phone, string $message, string $scheduleDate): array
-    {
-        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
-    }
-
-    /**
-     * Handle Multi sms message.
-     *
-     * @param array $phonesArray
-     * @param string $message
-     * @return array
-     */
-    public function sendMultiSms(array $phonesArray, string $message): array
-    {
-        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
-    }
-
-    /**
-     * Build OTP Request Body
+     * Build Sms Request Body
      *
      * @param string $phone
      * @param string $message

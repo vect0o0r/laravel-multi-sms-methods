@@ -13,7 +13,6 @@ use Vector\LaravelMultiSmsMethods\Interfaces\SmsGatewayInterface;
  */
 class Smsbox extends BaseMethod implements SmsGatewayInterface
 {
-
     /**
      * Set Method Driver And Base Url
      *
@@ -34,10 +33,10 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
         parent::__construct();
     }
 
-
     /**
      * Send sms message.
      *
+     * Used To Start Calling Provider Api
      * @param string $phone
      * @param string $message
      * @param string|null $scheduleDate
@@ -56,18 +55,7 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
     }
 
     /**
-     * Get Sms Status
-     *
-     * @param string $smsID
-     * @return array
-     */
-    public function getSmsDetails(string $smsID): array
-    {
-        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
-    }
-
-    /**
-     * Handle Single sms message.
+     * Send Single Sms message.
      *
      * @param string $phone
      * @param string $message
@@ -80,7 +68,21 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
     }
 
     /**
-     * Handle Single sms message.
+     * Send Multi Sms message.
+     *
+     * @param array $phonesArray
+     * @param string $message
+     * @return array
+     * @throws JsonException
+     */
+    public function sendMultiSms(array $phonesArray, string $message): array
+    {
+        $phones = implode(',', $phonesArray);
+        return $this->send($phones, $message);
+    }
+
+    /**
+     * Send Scheduled Sms message.
      *
      * @param string $phone
      * @param string $message
@@ -94,17 +96,48 @@ class Smsbox extends BaseMethod implements SmsGatewayInterface
     }
 
     /**
-     * Handle Multi sms message.
+     * Used To Send OTP message.
      *
-     * @param array $phonesArray
-     * @param string $message
+     * @param string $phone
+     * @param int|null $otp
      * @return array
-     * @throws JsonException
      */
-    public function sendMultiSms(array $phonesArray, string $message): array
+    public function sendOtp(string $phone, int $otp = null): array
     {
-        $phones = implode(',', $phonesArray);
-        return $this->send($phones, $message);
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     *  Check Sent OTP message.
+     *
+     * @param string $phone
+     * @param int $otp
+     * @return array
+     */
+    public function checkOtp(string $phone, int $otp): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     * Get Sms Details
+     *
+     * @param string $smsID
+     * @return array
+     */
+    public function getSmsDetails(string $smsID): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
+    }
+
+    /**
+     * Get Account Available Balance.
+     *
+     * @return array
+     */
+    public function getBalance(): array
+    {
+        return $this->response(404, false, "This Methods Is Not Supported In {$this->driver} Yet", []);
     }
 
     /**

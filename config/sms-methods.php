@@ -12,19 +12,27 @@ return [
     "enable_send_sms" => env('ENABLE_SEND_SMS', true), //Enable or Disable Sms
     'methods' => [
         /*
-           |--------------------------------------------------------------------------
-           | Sms Box Connection
-           |--------------------------------------------------------------------------
-           |
-           | Here are credentials for sms Box gateway.
-           |
-           */
+       |--------------------------------------------------------------------------
+       | Sms Box Connection
+       |--------------------------------------------------------------------------
+       |
+       | Here are credentials for Sms Box gateway.
+       |
+       */
         'smsbox' => [
             'username' => env('SMSBOX_USERNAME'),
             'password' => env('SMSBOX_PASSWORD'),
             'gateway_id' => env('SMSBOX_GATEWAY_ID'),
             'sender_id' => env('SMSBOX_SENDER_ID'),
         ],
+        /*
+        |--------------------------------------------------------------------------
+        | Sms Misr Connection
+        |--------------------------------------------------------------------------
+        |
+        | Here are credentials for Sms Misr gateway.
+        |
+        */
         'smsmisr' => [
             'username' => env('SMSMISR_USERNAME'),
             'password' => env('SMSMISR_PASSWORD'),
@@ -32,27 +40,54 @@ return [
             'template_token' => env('SMSMISR_TEMPLATE_TOKEN'),
             'sandbox' => env('SMSMISR_SANDBOX'),
         ],
+        /*
+         |--------------------------------------------------------------------------
+         | Sms EG Connection
+         |--------------------------------------------------------------------------
+         |
+         | Here are credentials for Sms EG gateway.
+         |
+         */
         'smseg' => [
-            'username' =>"Switch Plus",
-            'password' => "Switch@2021!2!",
-            'sender_id' => "Switch Plus",
-
-
-            // 'username' => env('SMSEG_USERNAME'),
-            // 'password' => env('SMSEG_PASSWORD'),
-            // 'sender_id' => env('SMSEG_SENDER_ID'),
+            'username' => env('SMSEG_USERNAME'),
+            'password' => env('SMSEG_PASSWORD'),
+            'sender_id' => env('SMSEG_SENDER_ID'),
         ],
+        /*
+       |--------------------------------------------------------------------------
+       | Ooredoo Connection
+       |--------------------------------------------------------------------------
+       |
+       | Here are credentials for Ooredoo gateway.
+       |
+       */
         'ooredoo' => [
             'username' => env('OOREDOO_USERNAME'),
             'password' => env('OOREDOO_PASSWORD'),
             'sender_id' => env('OOREDOO_SENDER_ID'),
             'customer_id' => env('OOREDOO_CUSTOMER_ID'),
         ],
+        /*
+      |--------------------------------------------------------------------------
+      | Victory Link Connection
+      |--------------------------------------------------------------------------
+      |
+      | Here are credentials for Victory Link gateway.
+      |
+      */
         'victorylink' => [
             'username' => env('VICTORYLINK_USERNAME'),
             'password' => env('VICTORYLINK_PASSWORD'),
             'sender_id' => env('VICTORYLINK_SENDER_ID'),
         ],
+        /*
+        |--------------------------------------------------------------------------
+        | Twilio Connection
+        |--------------------------------------------------------------------------
+        |
+        | Here are credentials for Twilio gateway.
+        |
+        */
         'twilio' => [
             'account_sid' => env('TWILIO_ACCOUNT_SID'),
             'auth_token' => env('TWILIO_AUTH_TOKEN'),
