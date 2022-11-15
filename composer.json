@@ -1,6 +1,6 @@
 {
   "name": "vectoor/laravel-multi-sms-methods",
-  "description": "multi payment methods for laravel",
+  "description": "multi payment methods for laravel,A package dedicated to complete control and work with more than one gateway smoothly and simultaneously",
   "keywords": [
     "laravel",
     "sms",
