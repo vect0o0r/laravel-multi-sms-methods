@@ -1,6 +1,28 @@
 {
   "name": "vectoor/laravel-multi-sms-methods",
   "description": "multi payment methods for laravel",
+  "keywords": [
+    "laravel",
+    "sms",
+    "smsbox",
+    "twilio",
+    "smsmisr",
+    "victorylink",
+    "ooredoo",
+    "package",
+    "send sms",
+    "send otp",
+    "SMS Egypt",
+    "SMS Misr",
+    "BULK SMS",
+    "API",
+    "SMS Verification",
+    "Create SMS Campaigns",
+    "Send Online SMS",
+    "Marketing",
+    "Online SMS",
+    "Whatsapp SMS"
+  ],
   "license": "MIT",
   "autoload": {
     "psr-4": {
