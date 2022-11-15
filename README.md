@@ -327,21 +327,19 @@ use Vector\LaravelMultiSmsMethods\Facade\Sms;
 | `success` | `bool`      | `The Response Status (If Success Or Not)` |
 | `data`    | `array`     | `The Full Response From Api`              |
 
-
 ## Authors
 
 - [@Vector](https://github.com/vect0o0r)
 
-
 ## 🔗 Links
+
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://dev-vector.com)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammed-khaled-yousef/)
 
-
 ## License
 
-The Laravel SMS Gateway package is open-sourced software licensed under the [MIT license](https://github.com/vect0o0r/laravel-multi-sms-methods/blob/master/LICENSE).
-
+The Laravel SMS Gateway package is open-sourced software licensed under
+the [MIT license](https://github.com/vect0o0r/laravel-multi-sms-methods/blob/master/LICENSE).
 
 ## Support
 
