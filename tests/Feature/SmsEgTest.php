@@ -77,14 +77,4 @@ class SmsEgTest extends TestCase
         $this->assertEquals(200, $sms->code);
     }
 
-    /** @test * */
-    public function test_user_can_send_schedule_sms(): void
-    {
-        $sms = new SmsManager;
-        $sms = (object)$sms->driver($this->driver)->sendScheduleSms($this->phone, $this->message, now()->addDay()->format('yyyyMMddHHmm'));
-        $this->assertTrue($sms->success);
-        $this->assertEquals(200, $sms->code);
-    }
-
-
 }
